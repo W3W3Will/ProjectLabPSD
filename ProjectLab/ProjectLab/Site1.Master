@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProjectLab.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%---Header----%>
+        <div class="header">
+
+        </div>
+
+        <style>
+            .header{
+                height:100px;
+                width:100%;
+                background-color:darkred;
+            }
+            .footer{
+                height:100px;
+                width:100%;
+                background-color:crimson;
+            }
+
+        </style>
+
+        <div>
+            <%if (Session["user_session"] == null)
+                { %>
+                <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+                <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <%}
+                else
+                {%>
+                <asp:Button ID="btnHome" runat="server" Text="Home" OnClick="btnHome_Click" />
+                <asp:Button ID="btnManage" runat="server" Text="Manage Ramen" OnClick="btnManage_Click" />
+                <asp:Button ID="btnOrderRamen" runat="server" Text="Order Ramen" OnClick="btnOrderRamen_Click" />
+                <asp:Button ID="btnOrderQueue" runat="server" Text="Order Queue" OnClick="btnOrderQueue_Click" />
+                <asp:Button ID="btnProfile" runat="server" Text="Profile" OnClick="btnProfile_Click" />
+                <asp:Button ID="btnHistory" runat="server" Text="History" OnClick="btnHistory_Click" />
+                <asp:Button ID="btnReport" runat="server" Text="Report" OnClick="btnReport_Click" />
+                <asp:Button ID="btnLogout" runat="server" Text="LogOut" OnClick="btnLogout_Click" />
+            <%} %>
+
+            
+            <br />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <%---Footer----%>
+        <div class="footer">
+
+        </div>
+    </form>
+</body>
+</html>
